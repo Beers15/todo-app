@@ -10,18 +10,18 @@ const Form = (props) => {
         </div>
 
         <Card interactive={false} elevation={Elevation.TWO}>
-        <FormGroup minimal={true}>
-              <span>To Do Item</span>
-              <InputGroup className="input-item" onChange={props.handleChange} name="text" type="text" placeholder="Item Details" data-testid="item-details" />
+          <FormGroup minimal={true}>
+            <span>To Do Item</span>
+            <InputGroup className="input-item" onChange={props.handleChange} name="text" type="text" placeholder="Item Details" data-testid="item-details" />
 
-              <span>Assigned To</span>
-              <InputGroup className="input-item" onChange={props.handleChange} name="assignee" type="text" placeholder="Assignee Name" data-testid="item-assignee" />
-              
-              <span className="slider-label">Difficulty</span>
-              <br/>
-              <input className="slider" onChange={props.handleChange} type="range" defaultValue="3" min={1} max={5} name="difficulty" data-testid="item-difficulty" />
+            <span>Assigned To</span>
+            <InputGroup className="input-item" onChange={props.handleChange} name="assignee" type="text" placeholder="Assignee Name" data-testid="item-assignee" />
             
-              <br/><Button className="submit-btn" type="submit" intent="success" data-testid="todo-submit-btn">Add Item</Button>
+            <span className="slider-label">Difficulty</span>
+            <br/>
+            <input className="slider" onChange={props.handleChange} name="difficulty" type="range" defaultValue="3" min={1} max={5} data-testid="item-difficulty" />
+          
+            <br/><Button className="submit-btn" type="submit" intent="success" data-testid="todo-submit-btn">Add Item</Button>
           </FormGroup>
          </Card>
       </form>
