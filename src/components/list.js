@@ -21,7 +21,6 @@ const List = (props) => {
     if(settings.sortBy) {
       switch(settings.sortBy) {
         case 'difficultyLowToHigh':
-          console.log("HIT");
           list.sort((a, b) => {
             let aDifficulty = a.difficulty || 0;
             let bDifficulty = b.difficulty || 0;
@@ -29,7 +28,6 @@ const List = (props) => {
           });
           break;
       case 'difficultyHighToLow':
-        console.log("HIT");
         list.sort((a, b) => {
           let aDifficulty = a.difficulty || 0;
           let bDifficulty = b.difficulty || 0;

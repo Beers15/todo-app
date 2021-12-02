@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Header = (props) => {
   return (
-    <nav className="bp3-navbar bp3-light">
+    <nav className="bp3-navbar bp3-light" data-testid="header">
     <div className="nav-style">
       <div className="bp3-navbar-group bp3-align-left">
         <div className="nav-heading bp3-icon-list-detail-view"> To Do List</div>
