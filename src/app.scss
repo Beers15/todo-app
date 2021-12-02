@@ -1,0 +1,60 @@
+.margin-1 {
+  margin: 10px;
+}
+.margin-2 {
+  margin: 20px;
+}
+.margin-3 {
+  margin: 30px;
+}
+
+.list-margin {
+  margin-top: 75px;
+  margin-left: 20px;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: center;
+}
+
+.list-flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-style {
+  margin: 0 auto; 
+  width: 480px;
+}
+
+.nav-heading {
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.form-caption {
+  width: 310px !important;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.input-item {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.slider {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.submit-btn {
+  margin-top: 15px;
+}
+
+.slider-label {
+  margin-top:220px !important;
+}
