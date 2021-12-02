@@ -8,7 +8,7 @@ class Theme extends React.Component {
     this.state = {
       showCompleted: false,
       numItemsPerPage: 4,
-      sortBy: 'difficulty',
+      sortBy: 'difficultyHighToLow',
     }
   }
 
