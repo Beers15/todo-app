@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/todo-api/static/css/main.e5c4e8aa.chunk.css",
-    "main.js": "/todo-api/static/js/main.98e6209b.chunk.js",
-    "main.js.map": "/todo-api/static/js/main.98e6209b.chunk.js.map",
-    "runtime-main.js": "/todo-api/static/js/runtime-main.3c33eeaa.js",
-    "runtime-main.js.map": "/todo-api/static/js/runtime-main.3c33eeaa.js.map",
-    "static/css/2.4deaade2.chunk.css": "/todo-api/static/css/2.4deaade2.chunk.css",
-    "static/js/2.4be6471f.chunk.js": "/todo-api/static/js/2.4be6471f.chunk.js",
-    "static/js/2.4be6471f.chunk.js.map": "/todo-api/static/js/2.4be6471f.chunk.js.map",
-    "index.html": "/todo-api/index.html",
-    "static/css/2.4deaade2.chunk.css.map": "/todo-api/static/css/2.4deaade2.chunk.css.map",
-    "static/css/main.e5c4e8aa.chunk.css.map": "/todo-api/static/css/main.e5c4e8aa.chunk.css.map",
-    "static/js/2.4be6471f.chunk.js.LICENSE.txt": "/todo-api/static/js/2.4be6471f.chunk.js.LICENSE.txt",
-    "static/media/blueprint-icons.css": "/todo-api/static/media/icons-20.cde033c5.eot"
+    "main.css": "/todo-app/static/css/main.e5c4e8aa.chunk.css",
+    "main.js": "/todo-app/static/js/main.98e6209b.chunk.js",
+    "main.js.map": "/todo-app/static/js/main.98e6209b.chunk.js.map",
+    "runtime-main.js": "/todo-app/static/js/runtime-main.063e934e.js",
+    "runtime-main.js.map": "/todo-app/static/js/runtime-main.063e934e.js.map",
+    "static/css/2.34500af9.chunk.css": "/todo-app/static/css/2.34500af9.chunk.css",
+    "static/js/2.e58925a3.chunk.js": "/todo-app/static/js/2.e58925a3.chunk.js",
+    "static/js/2.e58925a3.chunk.js.map": "/todo-app/static/js/2.e58925a3.chunk.js.map",
+    "index.html": "/todo-app/index.html",
+    "static/css/2.34500af9.chunk.css.map": "/todo-app/static/css/2.34500af9.chunk.css.map",
+    "static/css/main.e5c4e8aa.chunk.css.map": "/todo-app/static/css/main.e5c4e8aa.chunk.css.map",
+    "static/js/2.e58925a3.chunk.js.LICENSE.txt": "/todo-app/static/js/2.e58925a3.chunk.js.LICENSE.txt",
+    "static/media/blueprint-icons.css": "/todo-app/static/media/icons-20.cde033c5.eot"
   },
   "entrypoints": [
-    "static/js/runtime-main.3c33eeaa.js",
-    "static/css/2.4deaade2.chunk.css",
-    "static/js/2.4be6471f.chunk.js",
+    "static/js/runtime-main.063e934e.js",
+    "static/css/2.34500af9.chunk.css",
+    "static/js/2.e58925a3.chunk.js",
     "static/css/main.e5c4e8aa.chunk.css",
     "static/js/main.98e6209b.chunk.js"
   ]
