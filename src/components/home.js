@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react';
 import useForm from '../hooks/form.js';
 import List from './list.js';
 import Form from './form.js';
-import Header from './header.js';
-
 
 import { v4 as uuid } from 'uuid';
 
-const ToDo = () => {
+const Home = (props) => {
   const [list, setList] = useState([]);
-  const [incomplete, setIncomplete] = useState([]);
   const { handleChange, handleSubmit } = useForm(addItem);
 
   function addItem(item) {
@@ -41,13 +38,16 @@ const ToDo = () => {
 
   useEffect(() => {
     let incompleteCount = list.filter(item => !item.complete).length;
-    setIncomplete(incompleteCount);
-    document.title = `To Do List: ${incomplete}`;
+    props.setIncomplete(incompleteCount);
+    document.title = `To Do List: ${props.incomplete}`;
   }, [list]);
+
+  useEffect(() => {
+    document.title = `To Do List: ${props.incomplete}`;
+  }, []);
 
   return (
     <>
-      <Header incomplete={incomplete} />
       <div className="flex-container">
         <Form 
           handleSubmit={handleSubmit} 
@@ -60,4 +60,4 @@ const ToDo = () => {
   );
 };
 
-export default ToDo;
+export default Home;
