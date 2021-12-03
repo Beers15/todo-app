@@ -2,7 +2,6 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import App from '../app';
-import List from '../components/list';
 import Theme from '../context/theme';
 
 describe('Testing the Todo App', () => {

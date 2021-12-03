@@ -30,6 +30,14 @@ const App = () => {
         <Route path="/settings">
           <SettingsForm />
         </Route>
+        <Route path="*">
+          <Todo 
+            setIncomplete={setIncomplete} 
+            incomplete={incomplete}
+            setList={setList}
+            list={list}  
+          />
+        </Route>
       </Switch>
     </Router>
   );
