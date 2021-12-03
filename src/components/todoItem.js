@@ -3,8 +3,8 @@ import { Button, Card, Elevation } from "@blueprintjs/core";
 
 const TodoItem = (props) => {
   return (
-    <Card interactive={true} elevation={Elevation.TWO}>
-      <h5>{props.item.text}</h5>
+    <Card className="todo-item-card" interactive={true} elevation={Elevation.TWO} data-testid="todoItem">
+      <h4>Task: {props.item.text}</h4>
       <p><small>Assigned to: {props.item.assignee}</small></p>
       <p><small>Difficulty: {props.item.difficulty}</small></p>
       <p><small>Complete: {props.item.complete.toString()}</small></p>

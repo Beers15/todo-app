@@ -2,62 +2,63 @@ import React, { useEffect, useState } from 'react';
 import useForm from '../hooks/form.js';
 import List from './list.js';
 import Form from './form.js';
-import Header from './header.js';
-
 
 import { v4 as uuid } from 'uuid';
 
-const ToDo = () => {
-  const [list, setList] = useState([]);
-  const [incomplete, setIncomplete] = useState([]);
+const Home = (props) => {
   const { handleChange, handleSubmit } = useForm(addItem);
 
   function addItem(item) {
     item.id = uuid();
     item.complete = false;
 
-    if(!list.includes(item)) {
-      setList([...list, item]);
+    console.log(item)
+
+    if(!props.list.includes(item)) {
+      props.setList([...props.list, item]);
     } else {
       alert('Entry already exists')
     }
   }
 
   function deleteItem(id) {
-    const items = list.filter( item => item.id !== id );
-    setList(items);
+    const items = props.list.filter( item => item.id !== id );
+    props.setList(items);
   }
 
   function toggleComplete(id) {
-    const items = list.map( item => {
+    const items = props.list.map( item => {
       if ( item.id == id ) {
         item.complete = ! item.complete;
       }
       return item;
     });
 
-    setList(items);
+    props.setList(items);
   }
 
   useEffect(() => {
-    let incompleteCount = list.filter(item => !item.complete).length;
-    setIncomplete(incompleteCount);
-    document.title = `To Do List: ${incomplete}`;
-  }, [list]);
+    let incompleteCount = props.list.filter(item => !item.complete).length;
+    props.setIncomplete(incompleteCount);
+    document.title = `To Do List: ${props.incomplete}`;
+  }, [props.list]);
+
+  useEffect(() => {
+    document.title = `To Do List: ${props.incomplete}`;
+  }, []);
 
   return (
     <>
-      <Header incomplete={incomplete} />
       <div className="flex-container">
         <Form 
           handleSubmit={handleSubmit} 
           handleChange={handleChange} 
         />
       
-        <List list={list} deleteItem={deleteItem} toggleComplete={toggleComplete} />
+        {props.list.length > 0 && (<List list={props.list} deleteItem={deleteItem} toggleComplete={toggleComplete} /> )}
       </div>
     </>
   );
 };
 
-export default ToDo;
+export default Home;

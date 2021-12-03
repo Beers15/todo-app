@@ -20,6 +20,7 @@
 
 .list-flex-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -35,8 +36,8 @@
 }
 
 .form-caption {
-  width: 310px !important;
-  margin-left: 10px;
+  width: 220px !important;
+  margin-left: 50px;
   margin-top: 10px;
   margin-bottom: 5px;
 }
@@ -57,4 +58,9 @@
 
 .slider-label {
   margin-top:220px !important;
+}
+
+.todo-item-card {
+  width: 500px;
+  margin-bottom: 10px;
 }

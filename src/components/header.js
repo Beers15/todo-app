@@ -1,19 +1,21 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
-export const Header = (props) => {
+const Header = (props) => {
   return (
-    <nav className="bp3-navbar bp3-light">
-    <div className="nav-style">
-      <div className="bp3-navbar-group bp3-align-left">
-        <div className="nav-heading bp3-icon-list-detail-view"> To Do List</div>
+    <nav className="bp3-navbar bp3-light" data-testid="header">
+      <div className="nav-style">
+        <div className="bp3-navbar-group bp3-align-left">
+          <div className="nav-heading bp3-icon-list-detail-view"><Link to="/"> To Do List</Link></div>
+        </div>
+        <div className="bp3-navbar-group bp3-align-right">
+          <Link to="/settings">Settings</Link>
+          <span className="bp3-navbar-divider"></span>
+          <span className="bp3-icon-tick"> {props.incomplete} items pending</span>
+        </div>
       </div>
-      <div className="bp3-navbar-group bp3-align-right">
-      <span className="bp3-navbar-divider"></span>
-        <span className="bp3-icon-tick"> {props.incomplete} items pending</span>
-      </div>
-    </div>
-  </nav>
-  )
+    </nav>
+  );
 }
 
 export default Header;

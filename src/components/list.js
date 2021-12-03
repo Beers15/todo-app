@@ -21,7 +21,6 @@ const List = (props) => {
     if(settings.sortBy) {
       switch(settings.sortBy) {
         case 'difficultyLowToHigh':
-          console.log("HIT");
           list.sort((a, b) => {
             let aDifficulty = a.difficulty || 0;
             let bDifficulty = b.difficulty || 0;
@@ -29,15 +28,21 @@ const List = (props) => {
           });
           break;
       case 'difficultyHighToLow':
-        console.log("HIT");
         list.sort((a, b) => {
           let aDifficulty = a.difficulty || 0;
           let bDifficulty = b.difficulty || 0;
           return bDifficulty - aDifficulty;
         });
         break;
-        default:
-          break;
+      case 'assignee':
+        list.sort((a, b) => {
+          let aAssignee = a.assignee || 'z';
+          let bAssignee = b.assignee || 'z';
+          return aAssignee.localeCompare(bAssignee);
+        });
+        break;
+      default:
+        break;
       }
     }
 
@@ -49,7 +54,7 @@ const List = (props) => {
   }
 
   return (
-    <div data-testid="list" className="list-margin">
+    <div className="list-margin">
       <div className="list-flex-container">
         {settings.showCompleted ? displayList(props.list) : displayList(props.list.filter((item) => {
           if(item.complete == false) { 
@@ -63,7 +68,6 @@ const List = (props) => {
         {(props.list.length > settings.numItemsPerPage && startIndex < props.list.length - 1) && 
           (<Button onClick={handleNextClick} icon="arrow-right" intent="primary">Next Page</Button>
         )}
-      <p className="margin-1"><i>{settings.showCompleted ? '' : 'not '}showing completed tasks</i></p>
     </div>
   )
 }
