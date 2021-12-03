@@ -54,7 +54,7 @@ const List = (props) => {
   }
 
   return (
-    <div data-testid="list" className="list-margin">
+    <div className="list-margin">
       <div className="list-flex-container">
         {settings.showCompleted ? displayList(props.list) : displayList(props.list.filter((item) => {
           if(item.complete == false) { 

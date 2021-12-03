@@ -2,17 +2,16 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import App from '../app';
+import List from '../components/list';
 import Theme from '../context/theme';
 
 describe('Testing the Todo App', () => {
   it('should properly render the application\'s main components', async () => {
     let app = render(<Theme><App /></Theme>);
 
-    let list = app.getByTestId('list');
     let header = app.getByTestId('header');
     let todoForm = app.getByTestId('todo-form');
 
-    expect(list).toBeInTheDocument();
     expect(header).toBeInTheDocument();
     expect(todoForm).toBeInTheDocument();
   });
@@ -58,6 +57,6 @@ describe('Testing the Todo App', () => {
 
     //since app is re-rendered each test the first todoItem id will be unique, even though every subsequent item would have same id
     let item = app.getByTestId('todoItem');
-    expect(item.textContent).toBe('Wash the DishesAssigned to: AlexDifficulty: 5Complete: falseMark Complete Delete');
+    expect(item.textContent).toBe('Task: Wash the DishesAssigned to: AlexDifficulty: 5Complete: falseMark Complete Delete');
   });
 });
