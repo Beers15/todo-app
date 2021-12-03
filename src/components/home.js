@@ -12,6 +12,8 @@ const Home = (props) => {
     item.id = uuid();
     item.complete = false;
 
+    console.log(item)
+
     if(!props.list.includes(item)) {
       props.setList([...props.list, item]);
     } else {

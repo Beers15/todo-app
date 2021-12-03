@@ -34,8 +34,15 @@ const List = (props) => {
           return bDifficulty - aDifficulty;
         });
         break;
-        default:
-          break;
+      case 'assignee':
+        list.sort((a, b) => {
+          let aAssignee = a.assignee || 'z';
+          let bAssignee = b.assignee || 'z';
+          return aAssignee.localeCompare(bAssignee);
+        });
+        break;
+      default:
+        break;
       }
     }
 
@@ -61,7 +68,6 @@ const List = (props) => {
         {(props.list.length > settings.numItemsPerPage && startIndex < props.list.length - 1) && 
           (<Button onClick={handleNextClick} icon="arrow-right" intent="primary">Next Page</Button>
         )}
-      <p className="margin-1"><i>{settings.showCompleted ? '' : 'not '}showing completed tasks</i></p>
     </div>
   )
 }

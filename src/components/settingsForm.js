@@ -13,9 +13,12 @@ const SettingsForm = () => {
   const [selectedCompleteRadioBtn, setSelectedCompleteRadioBtn] = useState()
 
   function updateSettings(userInput) {
-    console.log(userInput['Blueprint3.RadioGroup-0'], "!!!!");
-    console.log(userInput['Blueprint3.RadioGroup-1'], "!!!!");
-    console.log(userInput['itemsPerPage'], "!!!!");
+    //update submitted values, or use old value if non provided
+    settings.setCompleted(userInput['Blueprint3.RadioGroup-0'] || settings.setCompleted);
+    settings.setSortBy(userInput['Blueprint3.RadioGroup-1'] || settings.sortBy);
+    settings.setNumItemsPerPage(userInput['itemsPerPage'] || settings.setNumItemsPerPage);
+
+    alert('Your settings have been applied!')
   }
 
   return (
