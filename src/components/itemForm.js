@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, FormGroup, InputGroup, Card, Elevation } from "@blueprintjs/core";
 
-const Form = (props) => {
+const ItemForm = (props) => {
   return (  
       <form onSubmit={props.handleSubmit} data-testid="todo-form">
         <div className="bp3-callout bp3-intent-success form-caption">
@@ -29,4 +29,4 @@ const Form = (props) => {
   )
 }
 
-export default Form;
+export default ItemForm;

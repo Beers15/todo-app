@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './app.js';
-import Theme from './context/theme';
+import Settings from './context/settings';
 
 import "normalize.css";
 import "@blueprintjs/core/lib/css/blueprint.css";
@@ -12,9 +12,9 @@ import "@blueprintjs/icons/lib/css/blueprint-icons.css";
 class Main extends React.Component {
   render() {
     return (
-      <Theme>
+      <Settings>
         <App />
-      </Theme>
+      </Settings>
     );
   }
 }

@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import useForm from '../hooks/form.js';
 import List from './list.js';
-import Form from './form.js';
+import ItemForm from './itemForm.js';
 
 import { v4 as uuid } from 'uuid';
 
@@ -11,8 +11,6 @@ const Home = (props) => {
   function addItem(item) {
     item.id = uuid();
     item.complete = false;
-
-    console.log(item)
 
     if(!props.list.includes(item)) {
       props.setList([...props.list, item]);
@@ -50,7 +48,7 @@ const Home = (props) => {
   return (
     <>
       <div className="flex-container">
-        <Form 
+        <ItemForm 
           handleSubmit={handleSubmit} 
           handleChange={handleChange} 
         />

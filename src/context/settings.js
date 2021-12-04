@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 
-export const ThemeContext = React.createContext();
+export const SettingsContext = React.createContext();
 
-const Theme = (props) => {
-  const [ completed, setCompleted ] = useState(false);
+const Settings = (props) => {
+  const [ showCompleted, setCompleted ] = useState(false);
   const [ numItemsPerPage, setNumItemsPerPage ] = useState(3);
   const [ sortBy, setSortBy ] = useState('assignee');
   //to not overwrite local storage on first render
@@ -13,12 +13,12 @@ const Theme = (props) => {
   useEffect(() => {
     if(!initialRender) {
       //update local storage with user settings every time they change a setting
-      let settings = [completed, numItemsPerPage, sortBy];
+      let settings = [showCompleted, numItemsPerPage, sortBy];
       localStorage.setItem('settings', JSON.stringify(settings));
     } else {
       isInitialRender(false);
     }
-  }, [completed, numItemsPerPage, sortBy]);
+  }, [showCompleted, numItemsPerPage, sortBy]);
 
   useEffect(() => {
     if(localStorage.getItem('settings')) {
@@ -31,7 +31,7 @@ const Theme = (props) => {
   }, []);
 
   const values = {
-    showCompleted: completed,
+    showCompleted,
     setCompleted,
     numItemsPerPage,
     setNumItemsPerPage,
@@ -40,10 +40,10 @@ const Theme = (props) => {
   }
   
   return (
-    <ThemeContext.Provider value={values}>
+    <SettingsContext.Provider value={values}>
       {props.children}
-    </ThemeContext.Provider>
+    </SettingsContext.Provider>
   );
 }
 
-export default Theme;
+export default Settings;

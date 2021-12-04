@@ -1,11 +1,11 @@
 import React from 'react'
 import { useContext, useState } from 'react';
-import { ThemeContext } from '../context/theme';
+import { SettingsContext } from '../context/settings';
 import { Button } from "@blueprintjs/core";
 import TodoItem from './todoItem';
 
 const List = (props) => {
-  const settings = useContext(ThemeContext);
+  const settings = useContext(SettingsContext);
   let [startIndex, setStartIndex] = useState(0);
 
   const handleNextClick = () => {

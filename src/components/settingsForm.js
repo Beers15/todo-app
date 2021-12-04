@@ -1,11 +1,11 @@
 import React from 'react'
 import useForm from '../hooks/form.js';
 import { useContext, useState } from 'react';
-import { ThemeContext } from '../context/theme';
+import { SettingsContext } from '../context/settings';
 import { Button, FormGroup, InputGroup, Card, Elevation, RadioGroup, Radio } from "@blueprintjs/core";
 
 const SettingsForm = () => {
-  const settings = useContext(ThemeContext);
+  const settings = useContext(SettingsContext);
 
   const { handleChange, handleSubmit } = useForm(updateSettings);
 

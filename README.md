@@ -24,13 +24,25 @@ A Web Application for securely managing a To Do List
 * Save the users choices in Local Storage
   * Retrieve their preferences from Local Storage and apply them to the application on startup
 
+### Phase 3 Auth
+
+* Provide a way for users to create new accounts
+
+* Provide a way for users to login to their existing accounts
+
+* Ensure todo items are only viewable by logged in users
+
+* Ensure only users
+
+* Add Role based access control to ensure users can only create, update, or delete todo items if they have a role with the proper capabilities (For this phase, a the default user role will have all these capabilities)
+
 ------------
 
 ### Assignment Notes
 
 #### Global State
 
-* This application manages global state by using the React Context API. An instance of this API related to application theming was created. This design decision was made since such values did not need to change during program execution. The related ThemeContext's Provider wrapped the entire application. Consumers used the useContext hook to obtain the necessary theming values.
+* This application manages global state by using the React Context API. An instance of this API related to application theming was created. This design decision was made since such values did not need to change during program execution. The related Setting Context's and Auth Context's Providers wrapped the entire application. Consumers used the useContext hook to obtain the necessary global state values.
 
 #### Custom Hooks
 

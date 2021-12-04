@@ -2,11 +2,11 @@ import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 
 import App from '../app';
-import Theme from '../context/theme';
+import Settings from '../context/settings';
 
-describe('Testing the Todo App', () => {
+describe('Testing basic rendering of components in Todo ', () => {
   it('should properly render the application\'s main components', async () => {
-    let app = render(<Theme><App /></Theme>);
+    let app = render(<Settings><App /></Settings>);
 
     let header = app.getByTestId('header');
     let todoForm = app.getByTestId('todo-form');
@@ -16,7 +16,7 @@ describe('Testing the Todo App', () => {
   });
 
   it('should render a todo item when todo form is submitted', () => {
-    let app = render(<Theme><App /></Theme>);
+    let app = render(<Settings><App /></Settings>);
 
     let todoBtn = app.getByTestId('todo-submit-btn');
 
@@ -27,7 +27,7 @@ describe('Testing the Todo App', () => {
   });
 
   it('should render a todo item with proper values when form filled out and then submitted', () => {
-    let app = render(<Theme><App /></Theme>);
+    let app = render(<Settings><App /></Settings>);
 
     let todoBtn = app.getByTestId('todo-submit-btn');
     let itemDetails = app.getByTestId('item-details');
