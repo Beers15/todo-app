@@ -6,9 +6,12 @@ import {
 } from 'react-router-dom';
 import { useState } from 'react';
 
+import Auth from './components/auth';
 import Header from './components/header';
-import Todo from './components/home';
+import Home from './components/home';
+import LoginAndRegister from './components/loginAndRegister';
 import SettingsForm from './components/settingsForm';
+
 import './app.scss';
 
 const App = () => {
@@ -18,25 +21,32 @@ const App = () => {
   return (
     <Router>
       <Header incomplete={incomplete} />
+      <LoginAndRegister data-testid="login-and-register" />
       <Switch>
         <Route exact path="/">
-          <Todo 
-            setIncomplete={setIncomplete} 
-            incomplete={incomplete}
-            setList={setList}
-            list={list}  
-          />
+          <Auth>
+            <Home 
+              setIncomplete={setIncomplete} 
+              incomplete={incomplete}
+              setList={setList}
+              list={list}  
+            />
+          </Auth>
         </Route>
         <Route path="/settings">
-          <SettingsForm />
+          <Auth>
+            <SettingsForm />
+          </Auth>
         </Route>
         <Route path="*">
-          <Todo 
-            setIncomplete={setIncomplete} 
-            incomplete={incomplete}
-            setList={setList}
-            list={list}  
-          />
+          <Auth>
+            <Home 
+              setIncomplete={setIncomplete} 
+              incomplete={incomplete}
+              setList={setList}
+              list={list}  
+            />
+          </Auth>
         </Route>
       </Switch>
     </Router>
