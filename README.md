@@ -32,13 +32,15 @@ A Web Application for securely managing a To Do List
 
 * Ensure todo items are only viewable by logged in users
 
-* Ensure only users
+* Ensure todo item form and settings page are only viewable by logged in users.
 
 * Add Role based access control to ensure users can only create, update, or delete todo items if they have a role with the proper capabilities (For this phase, a the default user role will have all these capabilities)
 
 ------------
 
 ### Assignment Notes
+
+* For the purpose of this assignment there was no data persistence outside of storing settings context values to local-storage. There was also no encryption of passwords, or any type of backend.
 
 #### Global State
 

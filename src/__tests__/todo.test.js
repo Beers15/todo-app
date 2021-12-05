@@ -58,9 +58,6 @@ describe('Testing basic flow of actions in todo app', () => {
   });
 
   it('should be able to allow a user to register', () => {
-    let logoutBtn = screen.getByTestId('logout');
-    fireEvent.click(logoutBtn);
-
     let registerTab = screen.getByTestId('register-tab');
     fireEvent.click(registerTab);
 
@@ -87,6 +84,25 @@ describe('Testing basic flow of actions in todo app', () => {
   });
 
   it('Should allow users to create a todo item', () => {
+    let passwordField = screen.getByTestId('password-field');
+    let usernameField = screen.getByTestId('username-field');
+
+    fireEvent.change(passwordField, {
+      target: {
+        value: "password"
+      }
+    });
+
+    fireEvent.change(usernameField, {
+      target: {
+        value: "admin"
+      }
+    });
+
+    let button = screen.getByTestId('login');
+    fireEvent.click(button);
+
+
     let itemDetails = screen.getByTestId("item-details");
     let itemDifficulty = screen.getByTestId("item-difficulty");
     let itemAssignee = screen.getByTestId("item-assignee");

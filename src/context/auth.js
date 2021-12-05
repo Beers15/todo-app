@@ -32,10 +32,13 @@ const Auth = ({children}) => {
     if(userPool[username]) {
       //Create a "good" token, like you'd get from a server
       const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET || 'SECRET');
-      validateToken(token);
+      let user = validateToken(token);
+      if(user && userPool[username].password === password) {
+        setLoginState(true, token, user);
+      }
     } else {
       console.log("INVALID LOGIN");
-      //TODO add feedback when this occurs
+      return false;
     }
   }
 
@@ -44,13 +47,15 @@ const Auth = ({children}) => {
   };
 
   const register = (username, password) => {
-    if(userPool[username]) {
-      console.log("USER ALREADY EXISTS");
+    if(userPool[username] || password === '' || username === '') {
       return false;
     } else {
       userPool[username] = { username, password, role:'admin', capabilities:['create','read','update','delete'] }
       const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET || 'SECRET');
-      validateToken(token);
+      let user = validateToken(token);
+      if(user) {
+        setLoginState(true, token, user);
+      }
     }
   }
 
@@ -66,11 +71,17 @@ const Auth = ({children}) => {
   const validateToken = token => {
     try {
       let user = jwt.verify(token, process.env.REACT_APP_SECRET || 'SECRET');
-      setLoginState(true, token, user);
+      if(user) {
+        return user;
+      } else { 
+        return false;
+      }
+      
     }
     catch(e) {
       setLoginState(false, null, {});
       console.log('Token Validation Error', e);
+      return false;
     }
   };
 
