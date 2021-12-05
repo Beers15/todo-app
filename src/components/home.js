@@ -8,6 +8,16 @@ import { v4 as uuid } from 'uuid';
 const Home = (props) => {
   const { handleChange, handleSubmit } = useForm(addItem);
 
+  useEffect(() => {
+    let incompleteCount = props.list.filter(item => !item.complete).length;
+    props.setIncomplete(incompleteCount);
+    document.title = `To Do List: ${props.incomplete}`;
+  }, [props.list]);
+
+  useEffect(() => {
+    document.title = `To Do List: ${props.incomplete}`;
+  }, []);
+
   function addItem(item) {
     item.id = uuid();
     item.complete = false;
@@ -34,16 +44,6 @@ const Home = (props) => {
 
     props.setList(items);
   }
-
-  useEffect(() => {
-    let incompleteCount = props.list.filter(item => !item.complete).length;
-    props.setIncomplete(incompleteCount);
-    document.title = `To Do List: ${props.incomplete}`;
-  }, [props.list]);
-
-  useEffect(() => {
-    document.title = `To Do List: ${props.incomplete}`;
-  }, []);
 
   return (
     <>
