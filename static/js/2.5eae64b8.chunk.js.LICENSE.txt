@@ -11,6 +11,20 @@ object-assign
 */
 
 /*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <http://feross.org>
+ * @license  MIT
+ */
+
+/*!
+ * cookie
+ * Copyright(c) 2012-2014 Roman Shtylman
+ * Copyright(c) 2015 Douglas Christopher Wilson
+ * MIT Licensed
+ */
+
+/*!
 Copyright (C) 2013-2015 by Andrea Giammarchi - @WebReflection
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -47,6 +61,10 @@ LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
 OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+
+/*! safe-buffer. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 
 /** @license React v0.20.2
  * scheduler.production.min.js
