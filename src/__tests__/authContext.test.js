@@ -31,6 +31,15 @@ describe('Testing the Auth Context Provider', () => {
     );
   });
 
+  afterEach(() => {
+    try {
+      let button = screen.getByTestId('logout');
+      fireEvent.click(button);
+    } catch(err) {
+      //catch block to handle race conditions
+    }
+  });
+
   it('has auth context contains correct values before a user logs in', () => {
     expect(screen.getByTestId('user')).toHaveTextContent('');
     expect(screen.getByTestId('isLoggedIn')).toHaveTextContent('false');
@@ -60,10 +69,6 @@ describe('Testing the Auth Context Provider', () => {
   });
 
   it('should be able to authorize a user based on capability and recognize if someone has admin permissions', () => {
-    //logout user from previous test before fresh login
-    let button = screen.getByTestId('logout');
-    fireEvent.click(button);
-
     let passwordField = screen.getByTestId('password-field');
     let usernameField = screen.getByTestId('username-field');
 
@@ -79,7 +84,7 @@ describe('Testing the Auth Context Provider', () => {
       }
     });
   
-    button = screen.getByTestId('login');
+    let button = screen.getByTestId('login');
     fireEvent.click(button);
 
     expect(screen.getByTestId('user')).toHaveTextContent('admin');
@@ -90,10 +95,6 @@ describe('Testing the Auth Context Provider', () => {
   });
 
   it('should be able to authorize a user based on capability and recognize if someone has editor permissions', () => {
-    //logout user from previous test before fresh login
-    let button = screen.getByTestId('logout');
-    fireEvent.click(button);
-
     let passwordField = screen.getByTestId('password-field');
     let usernameField = screen.getByTestId('username-field');
 
@@ -109,7 +110,7 @@ describe('Testing the Auth Context Provider', () => {
       }
     });
   
-    button = screen.getByTestId('login');
+    let button = screen.getByTestId('login');
     fireEvent.click(button);
 
     expect(screen.getByTestId('user')).toHaveTextContent('editor');
@@ -120,10 +121,6 @@ describe('Testing the Auth Context Provider', () => {
   });
 
   it('should be able to authorize a user based on capability and recognize if someone has writer permissions', () => {
-    //logout user from previous test before fresh login
-    let button = screen.getByTestId('logout');
-    fireEvent.click(button);
-
     let passwordField = screen.getByTestId('password-field');
     let usernameField = screen.getByTestId('username-field');
 
@@ -139,7 +136,7 @@ describe('Testing the Auth Context Provider', () => {
       }
     });
   
-    button = screen.getByTestId('login');
+    let button = screen.getByTestId('login');
     fireEvent.click(button);
 
     expect(screen.getByTestId('user')).toHaveTextContent('writer');
@@ -150,10 +147,6 @@ describe('Testing the Auth Context Provider', () => {
   });
 
   it('should be able to logout a User', () => { 
-    //logout user from previous test before fresh login
-    let button = screen.getByTestId('logout');
-    fireEvent.click(button);
-
     let passwordField = screen.getByTestId('password-field');
     let usernameField = screen.getByTestId('username-field');
 
@@ -169,7 +162,7 @@ describe('Testing the Auth Context Provider', () => {
       }
     });
    
-    button = screen.getByTestId('login');
+    let button = screen.getByTestId('login');
     fireEvent.click(button);
 
     expect(screen.getByTestId('user')).toHaveTextContent('admin');
