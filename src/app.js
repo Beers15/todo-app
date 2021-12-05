@@ -9,7 +9,7 @@ import { useState } from 'react';
 import Auth from './components/auth';
 import Header from './components/header';
 import Home from './components/home';
-import Login from './components/login';
+import LoginAndRegister from './components/loginAndRegister';
 import SettingsForm from './components/settingsForm';
 
 import './app.scss';
@@ -21,7 +21,7 @@ const App = () => {
   return (
     <Router>
       <Header incomplete={incomplete} />
-      <Login data-testid="login" />
+      <LoginAndRegister data-testid="login-and-register" />
       <Switch>
         <Route exact path="/">
           <Auth>

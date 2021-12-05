@@ -31,7 +31,7 @@ const Auth = ({children}) => {
   const login = (username, password) => {
     if(userPool[username]) {
       //Create a "good" token, like you'd get from a server
-      const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET);
+      const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET || 'SECRET');
       validateToken(token);
     } else {
       console.log("INVALID LOGIN");
@@ -46,9 +46,8 @@ const Auth = ({children}) => {
   const register = (username, password) => {
     if(userPool[username]) {
       console.log("USER ALREADY EXISTS");
-      //TODO add feedback when this occurs
+      return false;
     } else {
-      //for now all users have all capabilities, like an admin would
       userPool[username] = { username, password, role:'admin', capabilities:['create','read','update','delete'] }
       const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET || 'SECRET');
       validateToken(token);

@@ -1,10 +1,11 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { useContext } from 'react';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import AuthProvider, { AuthContext } from '../context/auth';
 
-import Login from '../components/login';
+import LoginForm from '../components/loginForm';
+import Header from '../components/header';
 
 describe('Testing the Auth Context Provider', () => {
   let Test = () => {
@@ -14,7 +15,7 @@ describe('Testing the Auth Context Provider', () => {
       <>
         <p data-testid="user">{auth.user.username}</p>
         <p data-testid="isLoggedIn">{JSON.stringify(auth.loggedIn)}</p>
-        <Login data-testid="login" />
+        <LoginForm data-testid="login" />
         <p data-testid="authorized-read">{JSON.stringify(auth.can('read'))}</p>
         <p data-testid="authorized-create">{JSON.stringify(auth.can('create'))}</p>
         <p data-testid="authorized-update">{JSON.stringify(auth.can('update'))}</p>
@@ -26,6 +27,9 @@ describe('Testing the Auth Context Provider', () => {
   beforeEach(() => {
     render (
       <AuthProvider>
+        <Router>
+          <Header />
+        </Router>
         <Test />
       </AuthProvider>
     );
