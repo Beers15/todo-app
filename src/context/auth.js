@@ -50,7 +50,7 @@ const Auth = ({children}) => {
     } else {
       //for now all users have all capabilities, like an admin would
       userPool[username] = { username, password, role:'admin', capabilities:['create','read','update','delete'] }
-      const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET);
+      const token = jwt.sign(userPool[username], process.env.REACT_APP_SECRET || 'SECRET');
       validateToken(token);
     }
   }
@@ -66,7 +66,7 @@ const Auth = ({children}) => {
 
   const validateToken = token => {
     try {
-      let user = jwt.verify(token, process.env.REACT_APP_SECRET);
+      let user = jwt.verify(token, process.env.REACT_APP_SECRET || 'SECRET');
       setLoginState(true, token, user);
     }
     catch(e) {
