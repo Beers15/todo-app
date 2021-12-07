@@ -9,7 +9,7 @@ const LoginForm = () => {
       setShowAlert(false);
     })
   }, []);
-  
+
   const auth = useContext(AuthContext);
 
   let [ username, setUsername ] = useState('');
@@ -57,7 +57,7 @@ const LoginForm = () => {
       </Card>
       <Alert
         confirmButtonText="X"
-        isOpen={showAlert || false}
+        isOpen={showAlert}
         loading={false}
         onClose={() => {setShowAlert(false)}}
       >

@@ -21,7 +21,6 @@ const Auth = ({children}) => {
     if(username === '' || password === '') {
       return false;
     }
-
     try {
       let res = await axios.post('https://api-integration-server.herokuapp.com/signin', {},  {
         auth: {
@@ -31,6 +30,7 @@ const Auth = ({children}) => {
       });
       setLoginState(true, res.data.user);
     } catch(err) {
+      console.log(err);
       return false;
     }
   }
@@ -46,7 +46,6 @@ const Auth = ({children}) => {
 
     try {
       let res = await axios.post('https://api-integration-server.herokuapp.com/signup', { username, password, role: "admin" });
-      console.log(res, 'in register')
       setLoginState(true, res.data.user);
     } catch(err) {
       console.log(err);
