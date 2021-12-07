@@ -18,7 +18,6 @@ const SettingsForm = () => {
     settings.setCompleted(userInput['Blueprint3.RadioGroup-0'] || settings.setCompleted);
     settings.setSortBy(userInput['Blueprint3.RadioGroup-1'] || settings.sortBy);
     settings.setNumItemsPerPage(userInput['itemsPerPage'] || settings.setNumItemsPerPage);
-
     setShowAlert(true);
   }
 
@@ -66,7 +65,7 @@ const SettingsForm = () => {
         loading={false}
         onClose={() => {setShowAlert(false)}}
       >
-        <p>Your settings have been applied!</p>
+        <p>Your settings have been applied! Some settings may not go into affect until refresh.</p>
       </Alert>
     </div>
   );
