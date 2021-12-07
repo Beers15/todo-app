@@ -1,9 +1,15 @@
-import{ useState, useContext } from 'react';
+import{ useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../context/auth';
 import { Button, InputGroup, Card, Elevation, Alert } from "@blueprintjs/core";
 
 
 const LoginForm = () => {
+  useEffect(() => {
+    return (() => {
+      setShowAlert(false);
+    })
+  }, []);
+
   const auth = useContext(AuthContext);
 
   let [ username, setUsername ] = useState('');
@@ -19,9 +25,9 @@ const LoginForm = () => {
     }
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
-    let validLogin = auth.login(username, password);
+    let validLogin = await auth.login(username, password);
     if(!validLogin) {
       setShowAlert(true);
     }

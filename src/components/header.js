@@ -18,8 +18,12 @@ const Header = (props) => {
             <Link to="/settings" data-testid="settings">Settings</Link>
           </When>
           <span className="bp3-navbar-divider"></span>
-          <span className="bp3-icon-tick"> {props.incomplete} items pending</span>
-          <span className="bp3-navbar-divider"></span>
+          {props.incomplete > 0 && (
+            <>
+              <span className="bp3-icon-tick">{props.incomplete} items pending</span>
+              <span className="bp3-navbar-divider"></span>
+            </>
+          )}
           <When condition={auth.loggedIn}>
             <Button data-testid="logout" onClick={auth.logout}>Log Out</Button>
           </When>

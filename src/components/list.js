@@ -56,10 +56,10 @@ const List = (props) => {
   return (
     <div className="list-margin">
       <div className="list-flex-container">
-        {settings.showCompleted ? displayList(props.list) : displayList(props.list.filter((item) => {
+        {settings.showCompleted === 'true' ? displayList(props.list) : displayList(props.list.filter((item) => {
           if(item.complete == false) { 
             return true;
-          }
+          } 
         }))}
       </div>
       {startIndex > settings.numItemsPerPage - 1 && (

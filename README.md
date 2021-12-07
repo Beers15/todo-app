@@ -36,6 +36,10 @@ A Web Application for securely managing a To Do List
 
 * Add Role based access control to ensure users can only create, update, or delete todo items if they have a role with the proper capabilities (For this phase, a the default user role will have all these capabilities)
 
+### Phase 4 API Integration
+
+* Connect app to a live server for login, authorization, and data access related actions
+
 ------------
 
 ### Assignment Notes
@@ -54,6 +58,8 @@ A Web Application for securely managing a To Do List
 
   _Live application code found [here](https://beers15.github.io/todo-app/)_
 
+  _The server used for API Integration can be found [here](https://api-integration-server.herokuapp.com/)_
+  
 ### Diagram
 
 ![diagram](./todoApp.png)
